@@ -1,15 +1,14 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import Footer from './Footer';
 import NavBar from './header/NavBar';
-import Main from './main/Main';
-import SideNav from './main/SideNav';
 
 function SharedLayout() {
 
     return (
         <>
             <NavBar />
-            <Main />
+            <Outlet />
             <Footer />
         </>
     )

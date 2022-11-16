@@ -15,3 +15,11 @@ footer {
 footer > p {
   font-size: 24px;
 }
+
+.onhover_hide {
+  opacity: 0;
+}
+
+.onhover_show {
+  opacity: 1;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from '../../utils/Logo';
 import Dropdown from './Dropdown';
@@ -13,12 +14,32 @@ function NavBar() {
             <Logo />
 
             <StyledDiv>
+                <StyledHome>
+                    <StyledLink to='/'> 
+                        Home
+                    </StyledLink>
+                </StyledHome>
                 <Dropdown />
                 <ShoppingCart />
             </StyledDiv>
         </Header>
     )
 }
+
+const StyledLink = styled(Link)`
+    ${'' /* margin-top: 8px; */}
+    color: white;
+    text-decoration: none;
+`;
+
+const StyledHome = styled.div`
+    font-size: 32px;
+    color: white;
+    font-weight: bold;
+    &:hover {
+        cursor: pointer;
+    }
+`;
 
 const Header = styled.div`
     display: flex;

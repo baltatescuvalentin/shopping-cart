@@ -22,7 +22,7 @@ const StyledLogo = styled.img`
 `;
 
 StyledLogo.defaultProps = {
-    src: 'images/logo.png',
+    src: '../images/logo.png',
     alt: 'logo',
 }
 

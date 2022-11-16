@@ -1,59 +1,73 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link, useLocation } from 'react-router-dom';
 
 function SideNav() {
 
+    const location = useLocation();
+    const parts = location.pathname.split('/');
+
     return (
         <StyledSideNav>
-            <ShopTitle>Shop/</ShopTitle>
-            <CurrentTitle>Products</CurrentTitle>
+            <ShopTitle>Shop</ShopTitle>
+            <CurrentTitle>/{parts[parts.length - 1]}</CurrentTitle>
             <StyledUL>
                 <li>
-                    <p>Upper body</p>
+                    <StyledLink to='../catalog/upper-body'>Upper body</StyledLink>
                 </li>
                 <li>
-                    <p>Lower body</p>
+                    <StyledLink to='../catalog/lower-body'>Lower body</StyledLink>
                 </li>
                 <li>
-                    <p>Accesories</p>
+                    <StyledLink to='../catalog/accessories'>Accessories</StyledLink>
                 </li>
             </StyledUL>
         </StyledSideNav>
     )
 }
 
+const StyledLink = styled(Link)`
+    margin-top: 24px;
+    display: inline-block;
+    text-decoration: none;
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+`;
+
 const StyledSideNav = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: fixed;
+    ${'' /* position: fixed; */}
+    position: sticky;
+    top: 10px;
     padding-top: 36px;
-    margin-left: 24px;
+    margin-left: 12px;
 `;
 
 const ShopTitle = styled.p`
     margin: 0;
     margin-top: 42px;
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 600;
     margin-left: -24px;
 `;
 
 const CurrentTitle = styled.p`
     margin: 0;
-    margin-left: 42px;
     font-weight: 600;
     font-size: 56px;
+    text-align: center;
 `;
 
 const StyledUL = styled.ul`
-    align-items: center;
     list-style: none;
     margin-top: 56px;
-    gap: 24px;
     li {
         & > * {
-            margin: 24px 2em 0 12px;
+            margin: 36px 2em 0 12px;
+            color: black;
         }
         font-size: 30px;
         font-weight: 600;

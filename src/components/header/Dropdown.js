@@ -1,9 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 function Dropdown() {
     const [clicked, setClicked] = useState(false);
+
 
     function handleClick() {
         setClicked(c => !c);
@@ -11,19 +13,20 @@ function Dropdown() {
 
     return (
         <div onMouseEnter={handleClick} onMouseLeave={handleClick}>
-            <DropdownBtn>Products</DropdownBtn>
+            <DropdownBtn><ProductsLink to='catalog'>Products</ProductsLink></DropdownBtn>
             { clicked && 
                 <StyledUL>
                     <li>
-                        <p>Upper body</p>
+                        <StyledLink to='catalog/upper-body'>Upper body</StyledLink>
+                        {/* <div onClick={() => navigateTo('upper-body')}>Upper body</div> */}
                     </li>
                     
                     <li>
-                        <p>Lower body</p>
+                        <StyledLink to='catalog/lower-body'>Lower body</StyledLink>
                     </li>
 
                     <li>
-                        <p>Accesories</p>
+                        <StyledLink to='catalog/accessories'>Accessories</StyledLink>
                     </li>
                 </StyledUL>
             }
@@ -31,11 +34,25 @@ function Dropdown() {
     )
 }
 
+const ProductsLink = styled(Link)`
+    margin-top: 8px;
+    color: white;
+    text-decoration: none;
+`;
+
+const StyledLink = styled(Link)`
+    display: inline-block;
+    margin-top: 8px;
+    color: black;
+    text-decoration: none;
+`;
+
 const DropdownBtn = styled.button`
     border: none;
     background-color: inherit;
     font-size: 32px;
     color: white;
+    font-weight: 600;
     &:hover {
         cursor: pointer;
     }
@@ -44,20 +61,37 @@ const DropdownBtn = styled.button`
 
 const StyledUL = styled.ul`
     position: absolute;
-    margin-top: 0;
+    z-index: 100;
+    margin-top: 0px;
     list-style: none;
     border: 1px solid lightgrey;
     background-color: white;
     border-radius: 12px;
-    padding: 15px;
+    padding: 8px 15px;
     transform: translateX(-15px);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
     li {
         font-size: 24px;
         text-align: center;
+        & > * {
+            margin: 0;
+            margin-top: 12px;
+            color: black;
+        }
         &:hover {
             cursor: pointer;
+        }
+        &:after {
+            display:block;
+            content: '';
+            border-bottom: solid 3px #019fb6;  
+            transform: scaleX(0);  
+            transition: transform 250ms ease-in-out;
+            transform-origin:  0% 100%;
+        };
+        &:hover::after {
+            transform: scaleX(1);
         }
     }
 `;
