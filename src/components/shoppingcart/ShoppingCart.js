@@ -1,14 +1,18 @@
 import React from 'react';
 import { BsFillBagFill } from 'react-icons/bs';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
-function ShoppingCart() {
+function ShoppingCart({cart}) {
+
+    const navigator = useNavigate();
 
     return (
-        <CartWrapper>
-            <NumberOfProducts>
-                10
-            </NumberOfProducts>
+        <CartWrapper onClick={() => navigator('../cart')}>
+            { cart.cart.length ? <NumberOfProducts>
+                    {cart.cart.length}
+                </NumberOfProducts>
+             : ''}
             <BsFillBagFill size={'48px'} />
         </CartWrapper>
     )

@@ -1,23 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { GiConfirmed } from 'react-icons/gi';
 
-function PreviewElement({product}) {
+function PreviewElement({product, addToCart}) {
 
     const [hover, setHover] = useState(false);
-    const locate = useLocation();
-    const parts = locate.pathname.split('/');
-    console.log(`path: ${locate.pathname}`)
-    let catalog = '';
-    console.log(`parts: ${parts[1]}`);
-    if(parts.length < 3) {
-        catalog = '../catalog/';
-    }
+    const [click, setClick] = useState(false);
     const navigator = useNavigate();
 
     function navigateTo() {
-        navigator(catalog + product.id);
+        navigator(product.id);
     }
 
     return (
@@ -27,10 +21,23 @@ function PreviewElement({product}) {
             }
             <NameLink onClick={navigateTo} >{product.name}</NameLink>
             <p>${product.price}</p>
-            <AddBtn>Add to Bag</AddBtn>
+            <AddBtn onClick={() => 
+                    {
+                        addToCart(product.id);
+                        setClick(true);
+                    }
+                }>
+            Add to Bag</AddBtn>
+            <AddMessage onAnimationEnd={() => setClick(false)} className={click ? 'clickedBtn' : 'notclickedBtn'}>Added to Bag {<GiConfirmed size={'18px'} style={{color: 'green'}}/>}</AddMessage>
         </PreviewContainer>
     )
 }
+
+const AddMessage = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
 
 const PreviewContainer = styled.div`
     position: relative;
@@ -72,7 +79,9 @@ const AddBtn = styled.button`
     font-weight: 600;
     &:hover {
         cursor: pointer;
+        transform: scale(1.05);
     }
+    
     
 `;
 

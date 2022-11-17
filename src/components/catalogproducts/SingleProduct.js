@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import products from '../../utils/products';
 import { useNavigate, useParams } from 'react-router-dom';
 
-function SingleProduct() {
+function SingleProduct({cart, functions}) {
 
-    const navigator = useNavigate();
     const { productId } = useParams();
-    // console.log(productId);
 
     const product = products.find((product) => product.id === productId);
-    console.log(product);
+
+    const [prod, setProd] = useState({
+        id: product.id,
+        name: product.name,
+        image: product.image2,
+        price: product.price,
+        categoryId: product.categoryId,
+        count: 1,
+        size: 'M',
+    });
+
+    function changeSize(size) {
+        setProd({
+            ...prod,
+            size: size,
+        })
+    }
+
+    const navigator = useNavigate();
+
 
     return (
         <Wrapper>
@@ -18,11 +35,15 @@ function SingleProduct() {
             <Image src={`../${product.image2}`} alt={product.name} />
             <OptionsWrapper>
                 <Price>Price: ${product.price}</Price>
-                
-                <BuyAddBtn>Buy item</BuyAddBtn>
-                <BuyAddBtn>Add to Bag</BuyAddBtn>
+                <BuyAddBtn onClick={() => 
+                    {
+                        functions.addProductToCart(prod);
+                        navigator('../../cart');
+                    }
+                }>Buy item</BuyAddBtn>
+                <BuyAddBtn onClick={() => functions.addProductToCart(prod)}>Add to Bag</BuyAddBtn>
                 <BackBtn onClick={() => navigator(`../${product.categoryId}`)}>Go back</BackBtn>
-                <Select name='Size'>
+                <Select name='Size' onChange={(e) => changeSize(e.target.value)}>
                     <Option value='XS'>XS</Option>
                     <Option value='S'>S</Option>
                     <Option value='M'>M</Option>
@@ -42,6 +63,13 @@ const Wrapper = styled.div`
     gap: 24px;
     margin-top: 24px;
 
+`;
+
+const CountWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 `;
 
 const Select = styled.select`

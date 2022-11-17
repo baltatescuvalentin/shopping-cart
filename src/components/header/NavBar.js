@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from '../../utils/Logo';
 import Dropdown from './Dropdown';
-import ShoppingCart from './ShoppingCart';
+import ShoppingCartHover from '../shoppingcart/ShoppingCartHover';
 
-
-function NavBar() {
-
+function NavBar({cart}) {
 
     return (
         <Header>
@@ -20,7 +18,8 @@ function NavBar() {
                     </StyledLink>
                 </StyledHome>
                 <Dropdown />
-                <ShoppingCart />
+                {/* <ShoppingCart cart={cart}/> */}
+                <ShoppingCartHover cart={cart} />
             </StyledDiv>
         </Header>
     )

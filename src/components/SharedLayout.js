@@ -3,11 +3,11 @@ import { Outlet } from 'react-router-dom';
 import Footer from './Footer';
 import NavBar from './header/NavBar';
 
-function SharedLayout() {
+function SharedLayout({cart}) {
 
     return (
         <>
-            <NavBar />
+            <NavBar cart={cart}/>
             <Outlet />
             <Footer />
         </>

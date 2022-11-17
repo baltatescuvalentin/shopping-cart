@@ -4,13 +4,13 @@ import products from '../../utils/products';
 import styled from 'styled-components';
 import PreviewElement from './PreviewElement';
 
-function CategoryProducts() {
+function CategoryProducts({cart, functions}) {
 
     const { categoryId } = useParams();
     const categoryFilter = products.filter((product) => product.categoryId === categoryId);
 
     const elements = categoryFilter.map((product) => {
-        return <PreviewElement key={product.id} product={product}/>
+        return <PreviewElement key={product.id} product={product} addToCart={functions.addToCart}/>
     });
 
     return (

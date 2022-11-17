@@ -42,7 +42,7 @@ const HomeWrapper = styled.div`
     position: relative;
     width: 100%;
     min-height: calc(100vh - 170px - 83px);
-    background: url('images/dots2.png');
+    background: url('../images/dots2.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

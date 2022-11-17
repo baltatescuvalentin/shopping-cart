@@ -23,3 +23,25 @@ footer > p {
 .onhover_show {
   opacity: 1;
 }
+
+.notclickedBtn {
+  visibility: hidden;
+}
+
+.clickedBtn {
+  visibility: visible;
+  color: green;
+  animation: fade 2s ease-out forwards;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
