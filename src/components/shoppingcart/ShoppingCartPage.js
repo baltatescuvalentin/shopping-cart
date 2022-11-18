@@ -30,6 +30,7 @@ function ShoppingCartPage({cart, functions}) {
                 </Info>
                 <Printer>{cartMap}</Printer>
                 <TotalMsg>Total: {' $' + functions.calculateTotal(cart).toFixed(2)}</TotalMsg>
+                <CheckoutBtn><span>Checkout</span></CheckoutBtn>
             </>
             : <EmptyMessage>No products selected yet!</EmptyMessage>
             }
@@ -48,10 +49,6 @@ function Printer({children}) {
 function Product({cartElem, functions}) {
 
     const price =  (parseFloat(cartElem.price) * parseFloat(cartElem.count)).toFixed(2);
-
-    console.log('price');
-    console.log(cartElem.price);
-    console.log(cartElem.count);
 
     const navigator = useNavigate();
 
@@ -81,6 +78,28 @@ function Product({cartElem, functions}) {
         </ElementWrapper>
     )
 }
+
+const CheckoutBtn = styled.button`
+    border: none;
+    border-radius: 16px;
+    width: 350px;
+    height: 96px;
+    background-color: #1F2937;
+    margin-left: 40px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+    &:active {
+        transform: scale(0.98);
+    }
+    span {
+        font-weight: 600;
+        font-size: 48px;
+        color: white;
+    }
+`;
 
 const EmptyMessage = styled.p`
     font-size: 56px;

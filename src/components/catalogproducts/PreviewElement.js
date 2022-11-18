@@ -56,6 +56,7 @@ const PreviewContainer = styled.div`
 const NameLink = styled.p`
     &:hover {
         cursor: pointer;
+        color: lightblue;
     }
 `;
 
@@ -80,6 +81,9 @@ const AddBtn = styled.button`
     &:hover {
         cursor: pointer;
         transform: scale(1.05);
+    }
+    &:active {
+        transform: scale(.98);
     }
     
     

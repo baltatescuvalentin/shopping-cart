@@ -26,6 +26,9 @@ const ProductsWrapper = styled.div`
     align-items: center;
     gap: 24px;
     margin-top: 24px;
+    @media (max-width: 1440px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
 `;
 
 export default CategoryProducts;

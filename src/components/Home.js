@@ -63,12 +63,17 @@ const HomeSplitter = styled.div`
     grid-template-columns: 1fr 1fr;
     padding: 100px 50px 0 50px;
     align-items: center;
+    justify-items: center;
+    gap: 24px;
+    @media (max-width: 1250px) {
+        grid-template-columns: 1fr;
+    }
 `;
 
 const HomeImg = styled.img`
     border-radius: 16px;
     width: 45rem;
-    
+    align-self: center;
     animation: fadeIn ease-out 2s;
     @keyframes fadeIn {
         0% {
@@ -104,6 +109,7 @@ const SmallText = styled.p`
     color: grey;
     font-weight: 600;
     margin: 0;
+    text-align: center;
     text-shadow: 1px 3px 0 #969696, 1px 13px 5px #aba8a8;
 `;
 

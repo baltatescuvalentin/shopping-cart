@@ -34,7 +34,7 @@ function ShoppingCartHover({cart}) {
                     <Hover>
                         {cart.cart.length ?
                         <>
-                          <Info>Cart</Info>  {cartMap} <Info>Total: {' $' + calculateTotal(cart).toFixed(2)}</Info>
+                          <Info>Bag</Info>  {cartMap} <Info>Total: {' $' + calculateTotal(cart).toFixed(2)}</Info>
                         </> : <EmptyMessage>No products yet in the bag.</EmptyMessage>}
                     </Hover> 
             }

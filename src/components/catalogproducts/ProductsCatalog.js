@@ -49,7 +49,7 @@ const RedirectBtn = styled.button`
     border-radius: 16px;
     background-color: #1F2937;
     height: 80px;
-    width: 280px;
+    width: 300px;
     font-size: 32px;
     font-weight: 600;
     color: white;
@@ -80,6 +80,9 @@ const ProductsWrapper = styled.div`
     align-items: center;
     margin-top: 24px;
     gap: 24px;
+    @media (max-width: 1440px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
 `;
 
 export default ProductsCatalog;
