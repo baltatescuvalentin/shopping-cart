@@ -13,7 +13,7 @@ function NavBar({cart}) {
 
             <StyledDiv>
                 <StyledHome>
-                    <StyledLink to='/'> 
+                    <StyledLink to='../shopping-cart'> 
                         Home
                     </StyledLink>
                 </StyledHome>

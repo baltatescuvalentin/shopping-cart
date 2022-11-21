@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import logo from './images/logo.png'
 
 function Logo() {
 
@@ -22,7 +23,7 @@ const StyledLogo = styled.img`
 `;
 
 StyledLogo.defaultProps = {
-    src: '../images/logo.png',
+    src: logo,
     alt: 'logo',
 }
 

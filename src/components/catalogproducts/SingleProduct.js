@@ -31,8 +31,8 @@ function SingleProduct({cart, functions}) {
 
     return (
         <Wrapper>
-            <Image src={`../${product.image1}`} alt={product.name} />
-            <Image src={`../${product.image2}`} alt={product.name} />
+            <Image src={`${product.image1}`} alt={product.name} />
+            <Image src={`${product.image2}`} alt={product.name} />
             <OptionsWrapper>
                 <Price>Price: ${product.price}</Price>
                 <BuyAddBtn onClick={() => 
@@ -111,8 +111,13 @@ const BuyAddBtn = styled.button`
     font-size: 32px;
     font-weight: 600;
     color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     &:hover {
         cursor: pointer;
+        transform: scale(1.05);
+    }
+    &:active {
+        transform: scale(0.98);
     }
 `;
 

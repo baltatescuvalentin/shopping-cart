@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import homephoto from '../utils/images/homephoto.jpg';
+import dots from '../utils/images/dots2.png';
 
 function Home() {
 
@@ -42,7 +44,7 @@ const HomeWrapper = styled.div`
     position: relative;
     width: 100%;
     min-height: calc(100vh - 170px - 83px);
-    background: url('../images/dots2.png');
+    background: url(${dots});
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -85,7 +87,7 @@ const HomeImg = styled.img`
     }
 `;
 HomeImg.defaultProps = {
-    src: 'images/homephoto.jpg',
+    src: homephoto,
     alt: 'people',
 }
 

@@ -182,7 +182,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<SharedLayout cart={cart}/>} >
+        <Route path='/shopping-cart' element={<SharedLayout cart={cart}/>} >
           <Route index element={<Home />}/>
           {/* fac un router cu shared pentru fiecare in care transmit numele pentru sidebar
             in index pun toate produsele

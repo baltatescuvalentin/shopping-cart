@@ -50,7 +50,7 @@ function HoverElement({product}) {
     return (
         <Element>
             <Count>{product.count + ' X'}</Count>
-            <Image src={`../${product.image}`} alt={product.name} />
+            <Image src={`${product.image}`} alt={product.name} />
             <Text onClick={() => navigator(`../catalog/${product.categoryId}/${product.id}`)}>{product.name}</Text>
             <Price>${product.price}</Price>
         </Element>

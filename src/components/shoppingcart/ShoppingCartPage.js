@@ -72,7 +72,7 @@ function Product({cartElem, functions}) {
                 <FaPlus size={'20px'} style={{margin: 'auto'}} onClick={() => functions.addToAProduct(cartElem.id)}/>
             </Quantity>
             <Price>
-                {price}
+                {'$' + price}
             </Price>
             <ImCross size={'28px'} onClick={() => functions.removeFromCart(cartElem.id)} />
         </ElementWrapper>

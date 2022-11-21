@@ -8,7 +8,7 @@ function ShoppingCart({cart}) {
     const navigator = useNavigate();
 
     return (
-        <CartWrapper onClick={() => navigator('../cart')}>
+        <CartWrapper onClick={() => navigator('cart')}>
             { cart.cart.length ? <NumberOfProducts>
                     {cart.cart.length}
                 </NumberOfProducts>
