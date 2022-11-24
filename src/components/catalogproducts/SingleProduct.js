@@ -62,7 +62,7 @@ const Wrapper = styled.div`
     align-items: center;
     gap: 24px;
     margin-top: 24px;
-
+    margin-right: 20px;
 `;
 
 const CountWrapper = styled.div`
