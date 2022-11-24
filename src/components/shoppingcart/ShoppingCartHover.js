@@ -51,7 +51,7 @@ function HoverElement({product}) {
         <Element>
             <Count>{product.count + ' X'}</Count>
             <Image src={`${product.image}`} alt={product.name} />
-            <Text onClick={() => navigator(`../catalog/${product.categoryId}/${product.id}`)}>{product.name}</Text>
+            <Text onClick={() => navigator(`../shopping-cart/catalog/${product.categoryId}/${product.id}`)}>{product.name}</Text>
             <Price>${product.price}</Price>
         </Element>
     )
@@ -76,6 +76,7 @@ const Count = styled.p`
 `;
 
 const Hover = styled.div`
+    margin-right: 24px;
     width: 350px;
     display: flex;
     flex-direction: column;
@@ -91,6 +92,10 @@ const Hover = styled.div`
     transform: translateX(-45%);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     gap: 12px;
+    @media (max-width: 1600px) {
+        transform: translateX(-50%);
+    }
+
     @media (max-width: 1400px) {
         transform: translateX(-55%);
     }
