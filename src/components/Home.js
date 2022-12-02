@@ -48,16 +48,8 @@ const HomeWrapper = styled.div`
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-
-    animation: fadeIn ease-out 2s;
-    @keyframes fadeIn {
-        0% {
-        opacity: 0;
-        }
-        100% {
-        opacity: 1;
-        }
-    }
+    mix-blend-mode: color-burn;
+    
 `;
 
 const HomeSplitter = styled.div`
@@ -77,6 +69,7 @@ const HomeImg = styled.img`
     width: 45rem;
     align-self: center;
     animation: fadeIn ease-out 2s;
+    z-index: 100;
     @keyframes fadeIn {
         0% {
         opacity: 0;
