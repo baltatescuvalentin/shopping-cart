@@ -14,11 +14,23 @@ function CategoryProducts({cart, functions}) {
     });
 
     return (
-        <ProductsWrapper>
-            {elements}
-        </ProductsWrapper>
+        <Wrapper>
+
+            <ProductsWrapper>
+                {elements}
+            </ProductsWrapper>
+        </Wrapper>
     )
 }
+
+const Wrapper = styled.div`
+    @media (max-width: 1280px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+    }
+`
 
 const ProductsWrapper = styled.div`
     display: grid;
@@ -29,6 +41,11 @@ const ProductsWrapper = styled.div`
     @media (max-width: 1440px) {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    @media (max-width: 720px) {
+        grid-template-columns: 1fr;
+    }
+    
 `;
 
 export default CategoryProducts;

@@ -12,7 +12,7 @@ function Dropdown() {
     }
 
     return (
-        <div onMouseEnter={handleClick} onMouseLeave={handleClick}>
+        <Wrapper onMouseEnter={handleClick} onMouseLeave={handleClick}>
             <DropdownBtn><ProductsLink to='catalog'>Products</ProductsLink></DropdownBtn>
             { clicked && 
                 <StyledUL>
@@ -30,9 +30,15 @@ function Dropdown() {
                     </li>
                 </StyledUL>
             }
-        </div>
+        </Wrapper>
     )
 }
+
+const Wrapper = styled.div`
+    @media (max-width: 1080px) {
+        display: none;
+    }
+`
 
 const ProductsLink = styled(Link)`
     margin-top: 8px;

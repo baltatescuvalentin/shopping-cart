@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from '../../utils/Logo';
 import Dropdown from './Dropdown';
 import ShoppingCartHover from '../shoppingcart/ShoppingCartHover';
 
-function NavBar({cart}) {
+function NavBar({cart}){
 
     return (
         <Header>
@@ -29,6 +29,9 @@ const StyledLink = styled(Link)`
     ${'' /* margin-top: 8px; */}
     color: white;
     text-decoration: none;
+    @media (max-width: 1080px) {
+        display: none;
+    }
 `;
 
 const StyledHome = styled.div`
@@ -51,6 +54,10 @@ const Header = styled.div`
     height: 170px;
     padding: 0 10%;
     z-index: 9;
+
+    @media (max-width: 720px) {
+        height: 120px;
+    }
 `;
 
 const StyledDiv = styled.div`

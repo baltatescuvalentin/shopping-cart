@@ -57,6 +57,7 @@ function HoverElement({product}) {
     )
 }
 
+
 const Info = styled.p`
     font-size: 24px;
     font-weight: 600;
@@ -98,6 +99,10 @@ const Hover = styled.div`
 
     @media (max-width: 1400px) {
         transform: translateX(-55%);
+    }
+
+    @media (max-width: 720px) {
+        display: none;
     }
 `;
 

@@ -63,6 +63,13 @@ const Wrapper = styled.div`
     gap: 24px;
     margin-top: 24px;
     margin-right: 20px;
+
+    @media (max-width: 720px) {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        align-items: center;
+    }
 `;
 
 const CountWrapper = styled.div`
@@ -76,10 +83,22 @@ const Select = styled.select`
     width: 280px;
     height: 56px;
     font-size: 20px;
+
+    @media (max-width: 720px) {
+        width: 250px;
+
+        & > option {
+            width: 250px;
+        }
+    }
 `;
 
 const Option = styled.option`
     font-size: 20px;
+
+    @media (max-width: 720px) {
+        width: 250px;
+    }
 `;
 
 const Price = styled.p`

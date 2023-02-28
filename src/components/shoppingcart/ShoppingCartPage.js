@@ -74,7 +74,7 @@ function Product({cartElem, functions}) {
             <Price>
                 {'$' + price}
             </Price>
-            <ImCross size={'28px'} onClick={() => functions.removeFromCart(cartElem.id)} />
+            <ImCross className='cart_close' onClick={() => functions.removeFromCart(cartElem.id)} />
         </ElementWrapper>
     )
 }
@@ -98,6 +98,15 @@ const CheckoutBtn = styled.button`
         font-weight: 600;
         font-size: 48px;
         color: white;
+
+        @media (max-width: 720px) {
+            font-size: 24px;
+        }
+    }
+
+    @media (max-width: 720px) {
+        margin-left: 10px;
+        width: 150px;
     }
 `;
 
@@ -105,17 +114,31 @@ const EmptyMessage = styled.p`
     font-size: 56px;
     font-weight: 600;
     text-align: center;
+
+    @media (max-width: 720px) {
+        font-size: 24px;
+    }
 `;
 
 const TotalMsg = styled.p`
     font-size: 48px;
     font-weight: 700;
     margin-left: 40px;
+
+    @media (max-width: 720px) {
+        font-size: 24px;
+        margin-left: 20px;
+    }
 `;
 
 const Wrapper = styled.div`
     margin: 40px 100px;
     min-height: calc(100vh - 170px - 83px - 75px);
+
+    @media (max-width: 720px) {
+        margin: 0;
+        
+    }
 `;
 
 const ElementWrapper = styled.div`
@@ -126,6 +149,11 @@ const ElementWrapper = styled.div`
     align-items: center;
     justify-content: space-around;
     margin: 4px 16px;
+
+    @media (max-width: 720px) {
+        width: 100%;
+        margin: 0;
+    }
 `;
 
 const Info = styled.div`
@@ -136,17 +164,28 @@ const Info = styled.div`
     align-items: center;
     justify-content: space-around;
     margin: 4px 16px;
+
+    @media (max-width: 720px) {
+        width: 100%;
+        margin: 0;
+    }
 `;
 
 const InfoText = styled.p`
     font-size: 28px;
     font-weight: 500;
     text-align: center;
+
+    @media (max-width: 720px) {
+        font-size: 16px;
+    }
 `;
 
 const Image = styled.img`
     width: 65px;
     height: 85px;
+
+    
 `;
 
 const ProductName = styled.p`
@@ -157,6 +196,10 @@ const ProductName = styled.p`
         cursor: pointer;
         color: lightblue;
     }
+
+    @media (max-width: 720px) {
+        font-size: 14px;
+    }
 `;
 
 const Select = styled.select`
@@ -166,6 +209,10 @@ const Select = styled.select`
     & > * {
         font-size: 20px;
     }
+
+    @media (max-width: 720px) {
+        width: 60px;
+    }
 `;
 
 const Quantity = styled.div`
@@ -173,15 +220,27 @@ const Quantity = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     width: 75px;
+
+    @media (max-width: 720px) {
+        width: 55px;
+    }
 `;
 
 const QuantityNumber = styled.p`
     font-size: 28px;
     margin: auto;
+
+    @media (max-width: 720px) {
+        font-size: 22px;
+    }
 `;
 
 const Price = styled.p`
     font-size: 24px;
+
+    @media (max-width: 720px) {
+        font-size: 18px;
+    }
 `;
 
 export default ShoppingCartPage;

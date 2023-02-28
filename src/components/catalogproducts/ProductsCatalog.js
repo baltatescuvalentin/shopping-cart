@@ -70,6 +70,7 @@ const CategoryWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 12px;
 `;
 
@@ -82,6 +83,13 @@ const ProductsWrapper = styled.div`
     gap: 24px;
     @media (max-width: 1440px) {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 720px) {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 `;
 

@@ -38,6 +38,12 @@ const ProductsBtn = styled.button`
     &:active, &:focus {
         transform: scale(0.98);
     }
+
+    @media (max-width: 720px) {
+        width: 150px;
+        height: 56px;
+        font-size: 24px;
+    }
 `;
 
 const HomeWrapper = styled.div`
@@ -50,6 +56,9 @@ const HomeWrapper = styled.div`
     background-position: center;
     mix-blend-mode: color-burn;
     
+    @media (max-width: 720px) {
+        
+    }
 `;
 
 const HomeSplitter = styled.div`
@@ -60,6 +69,12 @@ const HomeSplitter = styled.div`
     justify-items: center;
     gap: 24px;
     @media (max-width: 1250px) {
+        grid-template-columns: 1fr;
+        padding: 0;
+        margin-top: 50px
+    }
+
+    @media (max-width: 720px) {
         grid-template-columns: 1fr;
     }
 `;
@@ -77,6 +92,10 @@ const HomeImg = styled.img`
         100% {
         opacity: 1;
         }
+    }
+
+    @media (max-width: 720px) {
+        width: 300px;
     }
 `;
 HomeImg.defaultProps = {
@@ -106,6 +125,10 @@ const SmallText = styled.p`
     margin: 0;
     text-align: center;
     text-shadow: 1px 3px 0 #969696, 1px 13px 5px #aba8a8;
+
+    @media (max-width: 720px) {
+        font-size: 26px;
+    }
 `;
 
 const BigText = styled.p`
@@ -114,6 +137,10 @@ const BigText = styled.p`
     margin: 0;
     text-align: center;
     text-shadow: 1px 3px 0 #969696, 1px 13px 5px #aba8a8;
+
+    @media (max-width: 720px) {
+        font-size: 30px;
+    }
 `;
 
 export default Home;

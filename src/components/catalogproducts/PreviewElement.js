@@ -15,23 +15,29 @@ function PreviewElement({product, addToCart}) {
     }
 
     return (
-        <PreviewContainer>
-            { hover === false ? <FrontImage onClick={navigateTo} onMouseEnter={() => setHover(h => !h)} src={product.image1} alt={product.name}/>
-                : <FrontImage onClick={navigateTo} onMouseLeave={() => setHover(h => !h)} src={product.image2} alt={product.name} />
-            }
-            <NameLink onClick={navigateTo} >{product.name}</NameLink>
-            <p>${product.price}</p>
-            <AddBtn onClick={() => 
-                    {
-                        addToCart(product.id);
-                        setClick(true);
-                    }
-                }>
-            Add to Bag</AddBtn>
-            <AddMessage onAnimationEnd={() => setClick(false)} className={click ? 'clickedBtn' : 'notclickedBtn'}>Added to Bag {<GiConfirmed size={'18px'} style={{color: 'green'}}/>}</AddMessage>
-        </PreviewContainer>
+            <PreviewContainer>
+                { hover === false ? <FrontImage onClick={navigateTo} onMouseEnter={() => setHover(h => !h)} src={product.image1} alt={product.name}/>
+                    : <FrontImage onClick={navigateTo} onMouseLeave={() => setHover(h => !h)} src={product.image2} alt={product.name} />
+                }
+                <NameLink onClick={navigateTo} >{product.name}</NameLink>
+                <p>${product.price}</p>
+                <AddBtn onClick={() => 
+                        {
+                            addToCart(product.id);
+                            setClick(true);
+                        }
+                    }>
+                Add to Bag</AddBtn>
+                <AddMessage onAnimationEnd={() => setClick(false)} className={click ? 'clickedBtn' : 'notclickedBtn'}>Added to Bag {<GiConfirmed size={'18px'} style={{color: 'green'}}/>}</AddMessage>
+            </PreviewContainer>
     )
 }
+
+const Wrapper = styled.div`
+    display: flex;
+    align-items:center;
+    justify-content: center;
+`
 
 const AddMessage = styled.div`
     display: flex;

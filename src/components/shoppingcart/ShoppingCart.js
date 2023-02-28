@@ -34,6 +34,10 @@ const CartWrapper = styled.div`
     &:hover {
         cursor: pointer;
     }
+
+    @media (max-width: 720px) {
+        display: none;
+    }
 `;
 
 export default ShoppingCart;
