@@ -3,9 +3,10 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { BsFillBagFill } from 'react-icons/bs';
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import ShoppingCart from "../components/shoppingcart/ShoppingCart";
 
 
-function MobileMenu() {
+function MobileMenu({cart}) {
 
     const {openSidebar, handleOpenSidebar } = useSidebar();
     const navigator = useNavigate();
@@ -27,9 +28,7 @@ function MobileMenu() {
                 </LeftMenu>
 
                 <RightMenu>
-                    <Bag onClick={() => navigator('cart')}>
-                        <BsFillBagFill size={32}/>
-                    </Bag>
+                    <ShoppingCart cart={cart}/>
                 </RightMenu>
             </Menu>
         </Wrapper>

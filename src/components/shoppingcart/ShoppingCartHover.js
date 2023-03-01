@@ -28,7 +28,9 @@ function ShoppingCartHover({cart}) {
 
     return (
         <div onMouseEnter={handleHover} onMouseLeave={handleHover}>
-            <ShoppingCart cart={cart} />
+            <CartWrapper>
+                <ShoppingCart cart={cart} />
+            </CartWrapper>
             {
                 hover && 
                     <Hover>
@@ -57,6 +59,11 @@ function HoverElement({product}) {
     )
 }
 
+const CartWrapper = styled.div`
+    @media (max-width: 720px) {
+        visibility: hidden;
+    }
+`
 
 const Info = styled.p`
     font-size: 24px;

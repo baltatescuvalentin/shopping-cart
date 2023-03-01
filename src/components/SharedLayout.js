@@ -31,7 +31,7 @@ function SharedLayout({cart}) {
     return (
         <>
                 <NavBar cart={cart}/>
-                <MobileMenu />
+                <MobileMenu cart={cart}/>
                 <SideNavMobile />
                 <Outlet />
                 <Footer />

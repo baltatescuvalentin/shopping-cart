@@ -40,6 +40,27 @@ footer > p {
   height: 28px;
 }
 
+.cart_img {
+  
+
+  @media (max-width: 720px){
+    height: 40px;
+    width: 40px;
+    background-color: green;
+  }
+}
+
+.cart_img > * {
+  height: 48px;
+  width: 48px;
+
+  @media screen and (max-width: 720px){
+    height: 40px;
+    width: 40px;
+    background-color: green;
+  }
+}
+
 @keyframes fade {
   0% {
     opacity: 0;

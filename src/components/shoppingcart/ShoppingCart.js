@@ -13,7 +13,9 @@ function ShoppingCart({cart}) {
                     {cart.cart.length}
                 </NumberOfProducts>
              : ''}
-            <BsFillBagFill size={'48px'} />
+             <div className='cart_img'> 
+                <BsFillBagFill />
+             </div>
         </CartWrapper>
     )
 }
@@ -36,7 +38,7 @@ const CartWrapper = styled.div`
     }
 
     @media (max-width: 720px) {
-        display: none;
+        
     }
 `;
 

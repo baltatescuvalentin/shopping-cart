@@ -46,6 +46,10 @@ const Message = styled.p`
     font-size: 72px;
     margin: 12px;
     font-weight: 600;
+
+    @media (max-width: 720px) {
+        font-size: 36px;
+    }
 `;
 
 export default Error;

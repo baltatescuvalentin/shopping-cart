@@ -137,7 +137,7 @@ const Wrapper = styled.div`
 
     @media (max-width: 720px) {
         margin: 0;
-        
+        margin-top: 15px;
     }
 `;
 
