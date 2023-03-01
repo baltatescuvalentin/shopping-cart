@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/shopping-cart/static/css/main.ec0e9d9a.css",
-    "main.js": "/shopping-cart/static/js/main.d3874e7c.js",
+    "main.css": "/shopping-cart/static/css/main.ed514910.css",
+    "main.js": "/shopping-cart/static/js/main.d06d7e3e.js",
     "static/js/787.d6fe38e8.chunk.js": "/shopping-cart/static/js/787.d6fe38e8.chunk.js",
     "static/media/logo.png": "/shopping-cart/static/media/logo.642f21245d86c007908e.png",
     "static/media/oversized-wool-blend-coat2.jpg": "/shopping-cart/static/media/oversized-wool-blend-coat2.d7ccb746af5565cda9ff.jpg",
@@ -43,12 +43,12 @@
     "static/media/3-set-rings2.jpg": "/shopping-cart/static/media/3-set-rings2.2715841972a1562abec7.jpg",
     "static/media/dots2.png": "/shopping-cart/static/media/dots2.d3ec824ad722cf737c43.png",
     "index.html": "/shopping-cart/index.html",
-    "main.ec0e9d9a.css.map": "/shopping-cart/static/css/main.ec0e9d9a.css.map",
-    "main.d3874e7c.js.map": "/shopping-cart/static/js/main.d3874e7c.js.map",
+    "main.ed514910.css.map": "/shopping-cart/static/css/main.ed514910.css.map",
+    "main.d06d7e3e.js.map": "/shopping-cart/static/js/main.d06d7e3e.js.map",
     "787.d6fe38e8.chunk.js.map": "/shopping-cart/static/js/787.d6fe38e8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ec0e9d9a.css",
-    "static/js/main.d3874e7c.js"
+    "static/css/main.ed514910.css",
+    "static/js/main.d06d7e3e.js"
   ]
 }
