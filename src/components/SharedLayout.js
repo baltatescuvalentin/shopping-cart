@@ -1,47 +1,40 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import { SidebarProvider } from '../contexts/SidebarContext';
+import { useSidebar } from '../contexts/SidebarContext';
 import MobileMenu from '../utils/MobileMenu';
 import Footer from './Footer';
 import NavBar from './header/NavBar';
+import SideNavMobile from './main/SideNavMobile';
+
 
 function SharedLayout({cart}) {
 
-    // const targetRef = useRef(null);
-    // const [isIntersecting, setIsIntersecting] = useState(false);
+    const { openSidebar } = useSidebar();
 
-    // useEffect(() => {
-    //     const observer = new IntersectionObserver(
-    //       ([entry]) => {
-    //         setIsIntersecting(entry.isIntersecting);
-    //       },
-    //       {
-    //         root: null,
-    //         rootMargin: '0px',
-    //         threshold: 0.9,
-    //       }
-    //     );
-      
-    //     if (targetRef.current) {
-    //       observer.observe(targetRef.current);
-    //     }
-      
-    //     // Clean up the observer
-    //     return () => {
-    //       observer.disconnect();
-    //     };
-    //   }, []);
+    useEffect(() => {
+        const disableScroll = (event) => {
+          event.preventDefault();
+        };
 
-    // console.log(isIntersecting);
+        const body = document.getElementsByTagName('body')[0];
+    
+        // Disable scrolling on touch devices
+        if(openSidebar === true) {
+            body.addEventListener('touchmove', disableScroll, { passive: false });
+        }
+        return () => {
+          // Re-enable scrolling when the component unmounts
+          body.removeEventListener('touchmove', disableScroll);
+        };
+      }, [openSidebar]);
 
     return (
         <>
-            <SidebarProvider>
                 <NavBar cart={cart}/>
                 <MobileMenu />
+                <SideNavMobile />
                 <Outlet />
                 <Footer />
-            </SidebarProvider>
         </>
     )
 }

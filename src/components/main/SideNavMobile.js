@@ -9,34 +9,32 @@ function SideNavMobile() {
 
     const {openSidebar, handleOpenSidebar} = useSidebar();
 
-    const Wrapper = styled.div`
-        display: ${openSidebar === true ? 'block' : 'hidden'};
-        width: 350px;
-    `
-
     const location = useLocation();
     const parts = location.pathname.split('/');
 
     return (
         <Wrapper>
-            <XPosition>
-                    <StyledX>
+            <StyledSideNav $open={openSidebar}>
+                <XPosition>
+                    <StyledX onClick={() => {
+                        handleOpenSidebar();
+                        console.log(openSidebar);
+                    }}>
                         <FaTimes size={30} />
                     </StyledX>
-            </XPosition>
-            <StyledSideNav>
+                </XPosition>
                 <StyledHome to='..'>Home</StyledHome>
                 <ShopTitle>Shop</ShopTitle>
                 <CurrentTitle>/{parts[parts.length - 1]}</CurrentTitle>
                 <StyledUL>
                     <li>
-                        <StyledLink to='../catalog/upper-body'>Upper body</StyledLink>
+                        <StyledLink onClick={handleOpenSidebar} to='../shopping-cart/catalog/upper-body'>Upper body</StyledLink>
                     </li>
                     <li>
-                        <StyledLink to='../catalog/lower-body'>Lower body</StyledLink>
+                        <StyledLink onClick={handleOpenSidebar} to='../shopping-cart/catalog/lower-body'>Lower body</StyledLink>
                     </li>
                     <li>
-                        <StyledLink to='../catalog/accessories'>Accessories</StyledLink>
+                        <StyledLink onClick={handleOpenSidebar} to='../shopping-cart/catalog/accessories'>Accessories</StyledLink>
                     </li>
                 </StyledUL>
             </StyledSideNav>
@@ -47,7 +45,7 @@ function SideNavMobile() {
 
 
 const StyledHome = styled(Link)`
-    margin: 36px 2em 0 12px;
+    margin: 36px 2em 0 0;
     color: black;
     display: inline-block;
     text-decoration: none;
@@ -56,26 +54,36 @@ const StyledHome = styled(Link)`
     }
     font-size: 36px;
     font-weight: 600;
-    &:hover {
-        cursor: pointer;
-    }
-    &:after {
-        display:block;
-        content: '';
-        border-bottom: solid 6px #019fb6;  
-        transform: scaleX(0);  
-        transition: transform 250ms ease-in-out;
-        transform-origin:  0% 150%;
-    };
-    &:hover::after {
-        transform: scaleX(1);
+`
+
+const Wrapper = styled.div`
+    display: none;
+    width: 100vw;
+
+    @media (max-width: 720px) {
+        display: block;
     }
 `
 
+const StyledSideNav = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    z-index: 1000;
+    left: ${props => props.$open ? '0' : '-100%'};
+    top: 0;
+    padding-top: 36px;
+    height: 100%;
+    background-color: whitesmoke;
+    transition: left 0.5s linear;
+`;
+
 const XPosition = styled.div`
-    position: aboslute;
-    top: 35px;
-    left: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 100vw;
 `
 
 const StyledX = styled.div`
@@ -88,6 +96,7 @@ const StyledX = styled.div`
     justify-content: center;
     width: 40px;
     height: 40px;
+    margin-right: 24px;
 `;
 
 const StyledLink = styled(Link)`
@@ -99,23 +108,11 @@ const StyledLink = styled(Link)`
     }
 `;
 
-const StyledSideNav = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    ${'' /* position: fixed; */}
-    top: 10px;
-    padding-top: 36px;
-    margin-left: 12px;
-    height: 100dvh;
-`;
-
 const ShopTitle = styled.p`
     margin: 0;
     margin-top: 42px;
     font-size: 36px;
     font-weight: 600;
-    margin-left: -24px;
 `;
 
 const CurrentTitle = styled.p`
@@ -123,6 +120,10 @@ const CurrentTitle = styled.p`
     font-weight: 600;
     font-size: 36px;
     text-align: center;
+
+    @media (max-width: 720px) {
+        word-wrap: break-word;
+    }
 `;
 
 const StyledUL = styled.ul`
@@ -135,20 +136,6 @@ const StyledUL = styled.ul`
         }
         font-size: 36px;
         font-weight: 600;
-        &:hover {
-            cursor: pointer;
-        }
-        &:after {
-            display:block;
-            content: '';
-            border-bottom: solid 6px #019fb6;  
-            transform: scaleX(0);  
-            transition: transform 250ms ease-in-out;
-            transform-origin:  0% 100%;
-        };
-        &:hover::after {
-            transform: scaleX(1);
-        }
     }
 `;
 

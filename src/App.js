@@ -10,6 +10,7 @@ import SingleProduct from './components/catalogproducts/SingleProduct';
 import { useState } from 'react';
 import products from './utils/products';
 import ShoppingCartPage from './components/shoppingcart/ShoppingCartPage';
+import { SidebarProvider } from './contexts/SidebarContext';
 
 function App() {
 
@@ -181,22 +182,24 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path='/shopping-cart' element={<SharedLayout cart={cart}/>} >
-          <Route index element={<Home />}/>
-          {/* fac un router cu shared pentru fiecare in care transmit numele pentru sidebar
-            in index pun toate produsele
-            fac path specific pentru productId
-           */}
-          <Route path='catalog' element={<SharedCatalog />}>
-            <Route index element={<ProductsCatalog />} />
-            <Route path=':categoryId' element={<CategoryProducts cart={cart} functions={functions}/>} />
-            <Route path=':catehoryId/:productId' element={<SingleProduct cart={cart} functions={functions}/>} />
+      <SidebarProvider>
+        <Routes>
+          <Route path='/shopping-cart' element={<SharedLayout cart={cart}/>} >
+            <Route index element={<Home />}/>
+            {/* fac un router cu shared pentru fiecare in care transmit numele pentru sidebar
+              in index pun toate produsele
+              fac path specific pentru productId
+            */}
+            <Route path='catalog' element={<SharedCatalog />}>
+              <Route index element={<ProductsCatalog />} />
+              <Route path=':categoryId' element={<CategoryProducts cart={cart} functions={functions}/>} />
+              <Route path=':catehoryId/:productId' element={<SingleProduct cart={cart} functions={functions}/>} />
+            </Route>
+            <Route path='cart' element={<ShoppingCartPage cart={cart} functions={functions} />} />
+            <Route path='*' element={<Error />} />
           </Route>
-          <Route path='cart' element={<ShoppingCartPage cart={cart} functions={functions} />} />
-          <Route path='*' element={<Error />} />
-        </Route>
-      </Routes>
+        </Routes>
+      </SidebarProvider>
     </BrowserRouter>
   );
 }

@@ -7,14 +7,17 @@ import styled from "styled-components";
 
 function MobileMenu() {
 
-    const { handleOpenSidebar } = useSidebar();
+    const {openSidebar, handleOpenSidebar } = useSidebar();
     const navigator = useNavigate();
 
     return (
         <Wrapper>
             <Menu>
                 <LeftMenu>
-                    <Burger onClick={handleOpenSidebar}>
+                    <Burger onClick={() => {
+                        handleOpenSidebar();
+                        console.log(openSidebar);
+                    }}>
                         <GiHamburgerMenu size={42}/>
                     </Burger>
                     <Title>
@@ -33,21 +36,14 @@ function MobileMenu() {
     )
 }
 
-// position: absolute;
-//     width: 100vw;
-//     top: 140px;
-//     min-height: 100vh;
 
 const Wrapper = styled.div`
-    display: block;
-    
-
     position: sticky;
     height: 65px;
-    top: 10px;
-
-    @media (max-width: 720px) {
-        display: block;
+    top: 15px;
+    z-index: 1000;
+    @media (min-width: 720px) {
+        display: none;
     }
 `;
 
@@ -71,7 +67,6 @@ const Menu = styled.div`
     background-color: whitesmoke;
     border-width: 4px;
     border-color: linear-gradient(267deg, rgba(255,165,133,1) 16%, rgba(255,237,160,1) 71%);
-    z-index: 1000;
     margin: 10px 5px 0 5px;
 `;
 
