@@ -45,7 +45,7 @@ function SideNavMobile() {
 
 
 const StyledHome = styled(Link)`
-    margin: 36px 2em 0 0;
+    margin: 36px 0 0 0;
     color: black;
     display: inline-block;
     text-decoration: none;
@@ -54,6 +54,7 @@ const StyledHome = styled(Link)`
     }
     font-size: 28px;
     font-weight: 600;
+    text-align: center;
 `
 
 const Wrapper = styled.div`
