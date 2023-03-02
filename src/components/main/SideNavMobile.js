@@ -52,7 +52,7 @@ const StyledHome = styled(Link)`
     &:focus, &:hover, &:visited, &:link, &:active {
         text-decoration: none;
     }
-    font-size: 36px;
+    font-size: 28px;
     font-weight: 600;
 `
 
@@ -69,9 +69,9 @@ const StyledSideNav = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
+    position: fixed;
     z-index: 1000;
-    left: ${props => props.$open ? '0' : '-100%'};
+    left: ${props => props.$open ? '0' : '-150%'};
     top: 0;
     padding-top: 36px;
     height: 100%;
@@ -110,20 +110,17 @@ const StyledLink = styled(Link)`
 
 const ShopTitle = styled.p`
     margin: 0;
-    margin-top: 42px;
-    font-size: 36px;
+    margin-top: 16px;
+    font-size: 28px;
     font-weight: 600;
 `;
 
 const CurrentTitle = styled.p`
     margin: 0;
     font-weight: 600;
-    font-size: 36px;
+    font-size: 28px;
     text-align: center;
-
-    @media (max-width: 720px) {
-        word-wrap: break-word;
-    }
+    white-space: wrap;
 `;
 
 const StyledUL = styled.ul`
@@ -134,7 +131,7 @@ const StyledUL = styled.ul`
             margin: 36px 2em 0 12px;
             color: black;
         }
-        font-size: 36px;
+        font-size: 28px;
         font-weight: 600;
     }
 `;

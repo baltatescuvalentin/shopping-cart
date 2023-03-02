@@ -83,7 +83,7 @@ const CheckoutBtn = styled.button`
     border: none;
     border-radius: 16px;
     width: 350px;
-    height: 96px;
+    height: 64px;
     background-color: #1F2937;
     margin-left: 40px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
